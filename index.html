@@ -5,8 +5,603 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Airbnb</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+    </style>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          font-family: 'Rubik', sans-serif;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <h1 class="underline">Hello World!</h1>
+  <body class="relative">
+    <header class="sticky top-0 left-0 w-full bg-white">
+      <section class="px-10 border-b py-4">
+        <nav class="flex justify-between items-center">
+          <div class="flex space-x-2 text-red-500 font-semibold">
+            <span class="-rotate-90">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-9 h-9"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+                />
+              </svg>
+            </span>
+            <span class="text-2xl">airbnb</span>
+          </div>
+          <div class="flex border py-3 rounded-full translate-x-10">
+            <p class="px-6 border-r-2 my-auto">Anywhere</p>
+            <p class="px-6 border-r-2 my-auto">Any week</p>
+            <div class="flex items-center px-6">
+              <span>Add guests</span>
+              <span class="px-2 py-2 bg-red-500 rounded-full ml-2"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4 text-white font-extrabold"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="flex space-x-4 items-center">
+            <p>Airbnb your home</p>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                />
+              </svg>
+            </span>
+            <div class="flex space-x-2 border px-4 py-2 rounded-full">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </nav>
+      </section>
+      <section class="px-10 grid grid-cols-[1fr_auto] py-6 mt-1">
+        <ul class="max-w-full flex gap-[35px]">
+          <li
+            class="flex flex-col items-center space-y-2 border-b-2 border-black pb-1"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Bed & breakfasts</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Rooms</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Amazing pools</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Castles</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Lakefronts</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Luxe</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Domes</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Tiny homes</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">New</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Surfing</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">Countryside</span>
+          </li>
+          <li
+            class="flex flex-col items-center space-y-2 text-gray-500 text-sm"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
+            </span>
+            <span class="text-sm">National park</span>
+          </li>
+        </ul>
+        <div class="grid place-content-center">
+          <div
+            class="flex space-x-2 items-center border rounded-lg w-fit px-4 py-3"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
+                />
+              </svg>
+            </span>
+            <span>Filters</span>
+          </div>
+        </div>
+      </section>
+    </header>
+    <section class="px-10">
+      <div
+        class="grid grid-cols-[auto_1fr] max-w-2xl mx-auto rounded-xl border"
+      >
+        <span class="border-r my-auto px-4 py-2">Display total price</span>
+        <div
+          class="flex justify-between items-center [&>span]:px-4 [&>span]:py-2"
+        >
+          <span> includes all fees, before taxes </span>
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-14 h-14 text-gray-500"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5h6.75V15H4.5v-4.5zM3.75 18h15A2.25 2.25 0 0021 15.75v-6a2.25 2.25 0 00-2.25-2.25h-15A2.25 2.25 0 001.5 9.75v6A2.25 2.25 0 003.75 18z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </section>
+    <section class="px-10 py-6 grid grid-cols-4 gap-6">
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/1.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/2.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/3.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/4.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/5.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/6.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/7.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="w-full h-[250px]">
+          <img
+            src="/images/8.webp"
+            alt="nairobi"
+            class="w-full h-full rounded-lg object-cover"
+          />
+        </div>
+        <div class="flex flex-col mt-2">
+          <span>Nairobi,Kenya</span>
+          <span class="text-gray-500 text-sm">Hosted by Susan</span>
+          <span class="text-gray-500 text-sm">Jul 18 - 20</span>
+          <span class="text-sm">
+            <span class="text-black font-medium">$115</span> night</span
+          >
+        </div>
+      </div>
+    </section>
+    <footer
+      class="sticky bottom-0 left-0 w-full bg-white px-10 flex justify-between border-t py-3"
+    >
+      <div class="flex space-x-3 text-gray-800">
+        <span class="text-sm">© 2023 Airbnb, Inc.</span>
+        <span class="text-sm">Terms</span>
+        <span class="text-sm">Sitemap</span>
+        <span class="text-sm">Privacy</span>
+        <span class="text-sm">Your Privacy Choices</span>
+        <span class="text-sm">Destinations</span>
+      </div>
+      <div class="flex [&>div]:flex [&>div]:gap-4 text-gray-800">
+        <div>
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+              />
+            </svg>
+          </span>
+          <span>English (US)</span>
+        </div>
+        <div class="mx-4">
+          <span>$ USD</span>
+        </div>
+        <div>
+          <span>Support & resources</span>
+          <span>Icon</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
